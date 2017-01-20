@@ -1,59 +1,56 @@
 (function ($) {
 
-    var derp = document.getElementById('guid');
+    var textBox = document.getElementById('guid');
     text = "The quick brown fox jumps over the lazy dog";
-    derp.innerHTML = text;
+    textBox.innerHTML = text;
     
-    function generate() {
+    function newlines() {
         text2 = text.replace(/\s/g, '<br>');
-        derp.innerHTML = text2;
-
+        return text2;
     };
 
-    $('#generate').on("click", function (event) {
-        $('#guid').html(generate());
+    $('#newlines').on("click", function (event) {
+        $('#guid').html(newlines());
     });
 
-    function generate1(){
+    function alphabetize(){
         text2 = text.toLowerCase().split(' ');
         text2 = text2.sort();
-        derp.innerHTML = text2.join().replace(/,/g,'<br>');
+        return text2.join('<br>');
     }
 
-    $('#generate1').on("click", function (event) {
-        $('#guid').html(generate1());
+    $('#alphabetize').on("click", function (event) {
+        $('#guid').html(alphabetize());
     });
     
-    function generate2(){
+    function lengthSort(){
         text2 = text.split(' ');
         text2.sort(function(a, b){
         return b.length - a.length;
         });
-        derp.innerHTML = text2.join().replace(/,/g,'<br>');
+        return text2.join('<br>');
         
 
     }
 
-    $('#generate2').on("click", function (event) {
-        $('#guid').html(generate2());
+    $('#lengthSort').on("click", function (event) {
+        $('#guid').html(lengthSort());
     });
 
-    function generate3(){
+    function reverser(){
         text2 = text.split(' ');
 
         for(var i=0;i<text2.length;i++){
             a = text2[i].split('');
             a.reverse();
-            //reversal = derp.join();
-            text2[i] = a.join().replace(/,/g,'');
+            text2[i] = a.join('');
             console.log(text2[i]);
         }
-    derp.innerHTML = text2.join().replace(/,/g,'<br>');
-    console.log('heh');
+    return text2.join('<br>');
     }
 
-    $('#generate3').on("click", function (event) {
-        $('#guid').html(generate3());
+    $('#reverser').on("click", function (event) {
+        $('#guid').html(reverser());
     });
     
     
